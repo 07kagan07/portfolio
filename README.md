@@ -9,7 +9,6 @@ You can set up the project by following these commands in the terminal:
    cd project_directory
    npm install
    npm run dev
-  ```
 This command will launch your project on a local server, allowing you to preview it in your browser.
 
 Project Details:
