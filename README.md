@@ -2,7 +2,7 @@
 
 You can set up the project by following these commands in the terminal:
 
-Clone the project to your main directory and navigate to the project folder:
+ Clone the project to your main directory and navigate to the project folder:
 
    ```bash
    git clone <project_git_link>
