@@ -2,6 +2,7 @@ import React from "react";
 import { StyledAside } from "./style";
 import Social from "../Socials";
 import { AiFillHome,AiOutlineUser,AiFillBook,AiOutlineMail } from "react-icons/ai";
+import Link from "next/link";
 
 const Aside = () => {
   return (
@@ -21,7 +22,7 @@ const Aside = () => {
         <li><a href="#contact"><AiOutlineMail/>Contact</a></li>
       </ul>
       <footer>
-      &copy; Kağan Coşkun
+      <Link href="/admin-login">&copy; Kağan Coşkun</Link>
       </footer>
     </StyledAside>
   );
