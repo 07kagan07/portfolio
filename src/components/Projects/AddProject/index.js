@@ -14,8 +14,13 @@ const AddProject = () => {
     setNewProject({ ...newProject, [e.target.name]: e.target.value });
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(newProject);
+    };
+
   return (
-    <StyledAddProjectForm>
+    <StyledAddProjectForm onSubmit={handleSubmit}>
       <div className="mb-3">
         <label htmlFor="projectTitle" className="form-label">
           Project Title

@@ -1,8 +1,24 @@
-import React from "react";
+"use client"
+import React, { useState } from "react";
 import { StyledContact } from "./style";
 import { IoLocationSharp, IoMail, IoPhonePortrait } from "react-icons/io5";
 
 const Contact = () => {
+  const [contact, setContact] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+
+  const handleChange = (e) => {
+    setContact({ ...contact, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(contact);
+  };
   return (
     <StyledContact id="contact">
       <div className="container">
@@ -40,55 +56,69 @@ const Contact = () => {
             <div className="map"></div>
           </div>
           <div className="col-lg-7">
-            <form className="contact-form contact-box">
+            <form className="contact-form contact-box" onSubmit={handleSubmit}>
               <div className="row">
-                <div class="mb-3 col-6">
-                  <label for="exampleFormControlInput1" class="form-label">
+                <div className="mb-3 col-6">
+                  <label htmlFor="name" className="form-label">
                     Your Name
                   </label>
                   <input
                     type="text"
-                    class="form-control"
-                    id="exampleFormControlInput1"
+                    className="form-control"
+                    id="name"
                     required
+                    name="name"
+                    onChange={handleChange}
+                    value={contact.name}
                   />
                 </div>
-                <div class="mb-3 col-6">
-                  <label for="exampleFormControlInput1" class="form-label">
+                <div className="mb-3 col-6">
+                  <label htmlFor="exampleFormControlInput1" className="form-label">
                     Email address
                   </label>
                   <input
                     type="email"
-                    class="form-control"
+                    className="form-control"
                     id="exampleFormControlInput1"
                     placeholder="name@example.com"
                     required
+                    name="email"
+                    onChange={handleChange}
+                    value={contact.email}
                   />
                 </div>
               </div>
-              <div class="mb-3">
-                  <label for="exampleFormControlInput1" class="form-label">
-                    Mail Subject
-                  </label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="exampleFormControlInput1"
-                    required
-                  />
-                </div>
-              <div class="mb-3">
-                <label for="exampleFormControlTextarea1" class="form-label">
+              <div className="mb-3">
+                <label htmlFor="exampleFormControlInput1" className="form-label">
+                  Mail Subject
+                </label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="exampleFormControlInput1"
+                  required
+                  name="subject"
+                  onChange={handleChange}
+                  value={contact.subject}
+                />
+              </div>
+              <div className="mb-3">
+                <label htmlFor="exampleFormControlTextarea1" className="form-label">
                   Message
                 </label>
                 <textarea
-                  class="form-control"
+                  className="form-control"
                   id="exampleFormControlTextarea1"
                   rows="3"
                   required
+                  name="message"
+                  onChange={handleChange}
+                  value={contact.message}
                 ></textarea>
               </div>
-              <button type="submit" className="btn btn-primary w-100">Send</button>
+              <button type="submit" className="btn btn-primary w-100">
+                Send
+              </button>
             </form>
           </div>
         </div>
