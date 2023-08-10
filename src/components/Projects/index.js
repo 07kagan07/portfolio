@@ -3,7 +3,6 @@ import React,{useState} from 'react'
 import {projectDatas} from './mockProjects'
 import ProjectCard from './ProjectCard'
 import { StyledProjects } from './style'
-import QuillEditor from '../QuillEditor'
 
 const Projects = () => {
   const [loadMore, setLoadMore] = useState(false)
