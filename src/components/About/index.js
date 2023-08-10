@@ -32,18 +32,13 @@ const About = () => {
               <p>07.2023 - present</p>
             </div>
             <div>
+              <h5 className="job-title m-0">Frontend Developer Bootcamp at Turkcell</h5>
+              <p>01.2023 - 06.2023</p>
+            </div>
+            <div>
               <h5 className="job-title m-0">Frontend Developer at Milda Health</h5>
               <p>08.2022 - 03.2023</p>
             </div>
-            <ul className="contact p-0">
-              <li>
-                <b>Phone Number :</b>
-                <a href="tel:+905455206512">+905455206512</a>
-              </li>
-              <li>
-                <b>Email :</b> kagancoskun32@gmail.com
-              </li>
-            </ul>
           </div>
         </div>
         <div className="py-4">

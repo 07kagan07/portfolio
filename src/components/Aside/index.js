@@ -17,7 +17,7 @@ const Aside = () => {
       <ul className="menu">
         <li><a href="#home"><AiFillHome/>Home</a></li>
         <li><a href="#about"><AiOutlineUser/>About</a></li>
-        <li><a href="#blog"><AiFillBook/>Blog</a></li>
+        <li><a href="#projects"><AiFillBook/>Projects</a></li>
         <li><a href="#contact"><AiOutlineMail/>Contact</a></li>
       </ul>
       <footer>

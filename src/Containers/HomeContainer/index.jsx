@@ -4,7 +4,8 @@ import Hero from '@/components/Hero'
 import React from 'react'
 import { StyledHomeContainer } from './style'
 import About from '@/components/About'
-import Blogs from '@/components/Blogs'
+import Projects from '@/components/Projects'
+import Contact from '@/components/Contact'
 
 const HomeContainer = () => {
   return (
@@ -15,7 +16,8 @@ const HomeContainer = () => {
         <div className='content'>
             <Hero/>
             <About/>
-            <Blogs/>
+            <Projects/>
+            <Contact/>
         </div>
     </StyledHomeContainer>
   )

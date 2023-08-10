@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledBlogs = styled.section`
+export const StyledProjects = styled.section`
     padding: 2rem 0;
     background-color: #d5d7db;
     h3{
