@@ -21,6 +21,7 @@ const AddProject = () => {
 
   return (
     <StyledAddProjectForm onSubmit={handleSubmit}>
+      <h2>{newProject.title}</h2>
       <div className="mb-3">
         <label htmlFor="projectTitle" className="form-label">
           Project Title

@@ -17,7 +17,16 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(contact);
+    fetch("/api/contact", {
+      method: "POST",
+      body: JSON.stringify(contact),
+    })
+      .then(()=>alert("E-posta gönderildi")).then(()=>setContact({
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+      }))
   };
   return (
     <StyledContact id="contact">
