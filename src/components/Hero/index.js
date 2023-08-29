@@ -1,5 +1,6 @@
-import React, { useRef, useEffect } from 'react';
-import { StyledHero } from './style';
+import { useEffect } from "react";
+import { useRef } from "react";
+import { StyledHero } from "./style";
 
 const Hero = () => {
   const textElement = useRef(null);
@@ -8,28 +9,38 @@ const Hero = () => {
   let charIndex = 0;
 
   useEffect(() => {
-    textElement.current.textContent = "";
-    type();
-  }, []);
+    if (textElement.current) {
+      textElement.current.textContent = "";
+      type();
+    }
+    
+    return () => {
+      // Temizleyici fonksiyon: Bileşen unmount edildiğinde çalışır
+      clearTimeout(typeTimer);
+      clearTimeout(eraseTimer);
+    };
+  }, [textElement]);
 
+  let typeTimer;
   function type() {
     if (charIndex < texts[index].length) {
       textElement.current.textContent += texts[index].charAt(charIndex);
       charIndex++;
-      setTimeout(type, 100);
+      typeTimer = setTimeout(type, 100);
     } else {
-      setTimeout(erase, 1500);
+      eraseTimer = setTimeout(erase, 1500);
     }
   }
 
+  let eraseTimer;
   function erase() {
     if (charIndex > 0) {
       textElement.current.textContent = texts[index].substring(0, charIndex - 1);
       charIndex--;
-      setTimeout(erase, 50);
+      eraseTimer = setTimeout(erase, 50);
     } else {
       index = (index + 1) % texts.length;
-      setTimeout(type, 500);
+      typeTimer = setTimeout(type, 500);
     }
   }
 

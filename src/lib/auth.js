@@ -1,0 +1,18 @@
+import { jwtVerify } from "jose";
+
+export const getSecret = () => {
+  const secret = process.env.NEXT_PUBLIC_JWT_SECRET;
+  if (!secret) {
+    throw new Error("JWT SECRET is not defined");
+  }
+  return new TextEncoder().encode(secret);
+};
+
+export const verifyJwtToken = async (token) => {
+  try {
+    const { payload } = await jwtVerify(token, getSecret());
+    return payload;
+  } catch (error) {
+    return null;
+  }
+};

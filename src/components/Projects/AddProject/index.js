@@ -1,23 +1,43 @@
-"use client"
 import React, { useState } from "react";
 import { StyledAddProjectForm } from "./style";
 
+const initialState = {
+  title: "",
+  liveLink: "",
+  githubLink: "",
+  desc: "",
+};
+
 const AddProject = () => {
-  const [newProject, setNewProject] = useState({
-    title: "",
-    liveLink: "",
-    githubLink: "",
-    desc: "",
-  });
+  const [newProject, setNewProject] = useState(initialState);
 
   const handleChange = (e) => {
-    setNewProject({ ...newProject, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setNewProject((prevProject) => ({ ...prevProject, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(newProject);
-    };
+
+    try {
+      const response = await fetch("/api/project", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newProject),
+      });
+
+      if (response.ok) {
+        alert("Project Added Successfully");
+        setNewProject(initialState);
+      } else {
+        console.error("Failed to add project");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
 
   return (
     <StyledAddProjectForm onSubmit={handleSubmit}>
@@ -70,7 +90,7 @@ const AddProject = () => {
 
       <div className="mb-3">
         <label htmlFor="desc" className="form-label">
-          Project Descripton
+          Project Description
         </label>
         <textarea
           onChange={handleChange}
